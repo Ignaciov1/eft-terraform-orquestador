@@ -10,7 +10,7 @@ data "aws_iam_role" "lab_role" {
 # 1. Llamada al Módulo de Redes (VPC)
 module "redes" {
   source = "git::https://github.com/Ignaciov1/eft-terraform-modulo-redes.git?ref=v1.0.0"
-  
+
   # Pasa la variable obligatoria del rol
   lab_role_arn = data.aws_iam_role.lab_role.arn
 }
@@ -18,7 +18,7 @@ module "redes" {
 # 2. Llamada al Módulo de Cómputo (EC2)
 module "computo" {
   source = "git::https://github.com/Ignaciov1/eft-terraform-modulo-computo.git?ref=v1.0.0"
-  
+
   # Conectamos EC2 con las salidas (outputs) del módulo de red
   subnet_id         = module.redes.public_subnet_1_id
   security_group_id = module.redes.id_sg_ssh
