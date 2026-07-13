@@ -13,7 +13,8 @@ El proyecto incluye un pipeline en GitHub Actions que realiza:
 - Análisis de vulnerabilidades (Checkov).
 - Validación de políticas de seguridad corporativas (OPA - Open Policy Agent).
 - Despliegue automatizado (`terraform apply`).
-- Mecanismo de **Rollback Automático**: Si el despliegue falla, ejecuta un destroy automático para evitar costos innecesarios en AWS Academy.
+- **Mecanismo de Rollback Automático**: Si ocurre un fallo exclusivamente durante la etapa de despliegue (ej. restricciones de capa gratuita o red en AWS), el pipeline captura el estado de error y ejecuta automáticamente un `terraform destroy` para limpiar la infraestructura creada a medias y proteger los créditos de AWS Academy.
+- **Destrucción Manual Controlada**: Permite detonar la limpieza completa de la infraestructura bajo demanda, mediante la confirmación de una variable booleana directamente desde la interfaz de GitHub Actions (`workflow_dispatch`).
 
 ## Uso
 Para inicializar este orquestador localmente:
