@@ -2,6 +2,11 @@
 
 Todas las modificaciones notables de este proyecto serán documentadas en este archivo de acuerdo con el estándar de Versionado Semántico (SemVer).
 
+## [1.1.1] - 2026-07-13
+### Added
+- Implementación de Rollback Automático en el pipeline ante fallos de despliegue.
+- Incorporación de botón de Destrucción Manual mediante `workflow_dispatch`.
+
 ## [1.1.0] - 2026-07-12
 ### Added
 - Creación de la estructura de pruebas funcionales en directorio `examples/`.
