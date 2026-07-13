@@ -1,11 +1,11 @@
-# Orquestador de Infraestructura AWS - Evaluación Parcial 2
+# Orquestador de Infraestructura AWS - Evaluación Final Transversal (EFT)
 
 Repositorio principal para la asignatura **AUY1105 - Infraestructura como Código II**. Este proyecto actúa como un controlador central que orquesta la creación de infraestructura en AWS mediante el uso de módulos de Terraform desacoplados.
 
 ## Arquitectura Modular
 Este repositorio no contiene definición de recursos directos, sino que invoca los siguientes módulos externos versionados:
-1. **Módulo de Redes (v0.1.2):** [Repositorio de VPC](https://github.com/Ignaciov1/terraform-aws-vpc-AUY1105-grupo-3) - Encargado de VPC, Subredes, NAT, IGW y seguridad (KMS, Security Groups).
-2. **Módulo de Cómputo (v0.1.1):** [Repositorio de EC2](https://github.com/Ignaciov1/terraform-aws-ec2-AUY1105-grupo-3) - Encargado del despliegue de instancias EC2 y perfiles IAM.
+1. **Módulo de Redes (v1.1.0):** [Repositorio de VPC](https://github.com/Ignaciov1/eft-terraform-modulo-redes) - Encargado de VPC, Subredes, NAT, IGW y seguridad (KMS, Security Groups).
+2. **Módulo de Cómputo (v1.1.0):** [Repositorio de EC2](https://github.com/Ignaciov1/eft-terraform-modulo-computo) - Encargado del despliegue de instancias EC2 y perfiles IAM.
 
 ## Automatización (CI/CD)
 El proyecto incluye un pipeline en GitHub Actions que realiza:
@@ -21,3 +21,7 @@ Para inicializar este orquestador localmente:
 terraform init
 terraform plan
 terraform apply
+```
+
+## 📂 Ejemplos de uso
+En la carpeta `examples/` encontrarás una guía práctica y el código de referencia para desplegar este orquestador en un entorno simulado.

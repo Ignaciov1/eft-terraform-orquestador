@@ -2,20 +2,18 @@
 
 Todas las modificaciones notables de este proyecto serán documentadas en este archivo de acuerdo con el estándar de Versionado Semántico (SemVer).
 
-## [1.0.2] - 2026-05-28
+## [1.1.0] - 2026-07-12
+### Added
+- Creación de la estructura de pruebas funcionales en directorio `examples/`.
+- Actualización de documentación `README.md` a Evaluación Final Transversal.
 ### Changed
-- Actualización de las referencias (`ref`) de los módulos externos a sus versiones estables más recientes (`v0.1.2` para VPC y `v0.1.1` para EC2).
+- Actualización de los orígenes de módulos (source) en `main.tf` para consumir la versión estable `v1.1.0` de los repositorios de Redes y Cómputo.
 
-## [1.0.1] - 2026-05-28
+## [1.0.0] - 2026-07-12
+### Added
+- Pipeline de CI/CD automatizado con GitHub Actions.
+- Integración de validaciones de seguridad con OPA (Open Policy Agent) limitando accesos SSH e instancias `t2.micro`.
+- Integración de escáner de vulnerabilidades de código mediante Checkov.
 ### Fixed
-- Endurecimiento de seguridad en el pipeline CI/CD: se eliminó la bandera `--soft-fail` de Checkov.
-- Excepción explícita de la regla `CKV2_AWS_5` añadida para evitar falsos positivos de recursos huérfanos al utilizar módulos externos de red y cómputo.
-
-## [1.0.0] - 2026-05-28
-### Changed
-- Refactorización completa de la infraestructura: se eliminó el código monolítico local.
-- El repositorio ahora actúa como Orquestador Central invocando módulos externos.
-- Actualización del pipeline CI/CD (`cicd.yml`) para soportar la validación OPA en recursos anidados por módulos y añadir rollback automático (Destroy) en caso de fallos.
-
-### Removed
-- Eliminación de archivos locales `vpc.tf`, `ec2.tf`, `sg-group.tf` e `iam.tf` (migrados a repositorios modulares independientes).
+- Corrección de políticas OPA redundantes ajustándose estrictamente a la rúbrica de evaluación.
+- Ajuste de formato general e indentación con `terraform fmt`.
